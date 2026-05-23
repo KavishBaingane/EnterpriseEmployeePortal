@@ -1,0 +1,29 @@
+<div class="sidebar">
+    <div class="brand">
+        <span class="brand-icon">🏢</span>
+        <h2>Portal</h2>
+    </div>
+
+    <ul>
+        <li>
+            <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <span class="link-icon">📊</span>
+                <span class="link-text">Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/employees" routerLinkActive="active">
+                <span class="link-icon">👥</span>
+                <span class="link-text">Employees</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/department" routerLinkActive="active">
+                <span class="link-icon">📁</span>
+                <span class="link-text">Departments</span>
+            </a>
+        </li>
+    </ul>
+</div>
