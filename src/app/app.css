@@ -1,23 +1,33 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-.app-layout {
-    display: flex;
-    height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
+.container {
+  padding: 30px;
+  background-color: #f4f7fb;
+  min-height: 100vh;
 }
 
-.main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+h1 {
+  color: #1e293b;
+  margin-bottom: 30px;
 }
 
-.page-content {
-    padding: 20px;
-    background-color: #f4f6f9;
-    flex: 1;
+.employee-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.employee-card h2 {
+  margin-top: 0;
+  color: #2563eb;
+}
+
+.inactive {
+  color: red;
+  font-weight: bold;
 }

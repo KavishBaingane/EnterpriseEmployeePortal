@@ -1,19 +1,16 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-import { Navbar } from './layout/components/navbar/navbar';
-import { Sidebar } from './layout/components/sidebar/sidebar';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { EmployeeService } from './employees/services/employee.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    Navbar,
-    Sidebar
-  ],
+  imports: [CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
+
+  employeeService = inject(EmployeeService);
+
 }

@@ -1,14 +1,55 @@
-<div class="app-layout">
+<div class="container">
 
-  <app-sidebar></app-sidebar>
+  <h1>Enterprise Employee Portal</h1>
 
-  <div class="main-content">
+  <div class="employee-card"
+       *ngFor="let employee of employeeService.employees()"
+       [style.borderLeft]="'6px solid ' + employee.departmentColor">
 
-    <app-navbar></app-navbar>
+    <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+      <img
+        [src]="employee.profileImageUrl"
+        [alt]="employee.name"
+        style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #e2e8f0;">
 
-    <div class="page-content">
-      <router-outlet></router-outlet>
+      <div>
+        <h2>{{ employee.name }}</h2>
+
+        <p>
+          <strong>Designation:</strong>
+          {{ employee.designation }}
+        </p>
+
+        <p>
+          <strong>Department:</strong>
+          <span [style.color]="employee.departmentColor">
+            {{ employee.department }}
+          </span>
+        </p>
+      </div>
     </div>
+
+    <p>
+      <strong>Salary:</strong>
+      ₹{{ employee.salary }}
+    </p>
+
+    <p>
+      <strong>Joining Date:</strong>
+      {{ employee.joiningDate | date:'mediumDate' }}
+    </p>
+
+    <p>
+      <strong>Promoted:</strong>
+      {{ employee.promoted ? 'Yes' : 'No' }}
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <span [class.inactive]="!employee.isActive">
+        {{ employee.isActive ? 'Active' : 'Inactive' }}
+      </span>
+    </p>
 
   </div>
 
