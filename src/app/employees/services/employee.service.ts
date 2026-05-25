@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { Employee } from '../interfaces/employee.interface';
 
 @Injectable({
@@ -84,5 +84,11 @@ export class EmployeeService {
   addEmployee(employee: Employee) {
     this.employees.update(employees => [...employees, employee]);
   }
+
+  totalEmployees = computed(()=> this.employees().length);
+  
+  totalSalary = computed(()=>
+  this.employees().reduce((sum,emp)=>sum+emp.salary,0)
+  );
 
 }
