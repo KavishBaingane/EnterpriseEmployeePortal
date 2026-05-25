@@ -1,0 +1,35 @@
+<form (ngSubmit)="submitForm()">
+
+  <input
+    type="text"
+    placeholder="Employee Name"
+    [(ngModel)]="employee.name"
+    name="name"
+  >
+
+  <input
+    type="text"
+    placeholder="Designation"
+    [(ngModel)]="employee.designation"
+    name="designation"
+  >
+
+  <input
+    type="text"
+    placeholder="Department"
+    [(ngModel)]="employee.department"
+    name="department"
+  >
+
+  <input
+    type="number"
+    placeholder="Salary"
+    [(ngModel)]="employee.salary"
+    name="salary"
+  >
+
+  <button type="submit">
+    Add Employee
+  </button>
+
+</form>

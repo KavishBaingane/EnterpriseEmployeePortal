@@ -1,56 +1,33 @@
-<div class="container">
+<h1>Enterprise Employee Portal</h1>
 
-  <h1>Enterprise Employee Portal</h1>
+<hr>
 
-  <div class="employee-card"
-       *ngFor="let employee of employeeService.employees()"
-       [style.borderLeft]="'6px solid ' + employee.departmentColor">
+<h2>Add Employee</h2>
 
-    <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-      <img
-        [src]="employee.profileImageUrl"
-        [alt]="employee.name"
-        style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #e2e8f0;">
+<app-add-employee-form
+  (addEmployee)="addEmployee($event)">
+</app-add-employee-form>
 
-      <div>
-        <h2>{{ employee.name }}</h2>
+<hr>
 
-        <p>
-          <strong>Designation:</strong>
-          {{ employee.designation }}
-        </p>
+<h2>Dashboard Summary</h2>
 
-        <p>
-          <strong>Department:</strong>
-          <span [style.color]="employee.departmentColor">
-            {{ employee.department }}
-          </span>
-        </p>
-      </div>
-    </div>
+<p>
+  Total Employees:
+  {{ totalEmployees() }}
+</p>
 
-    <p>
-      <strong>Salary:</strong>
-      ₹{{ employee.salary }}
-    </p>
+<p>
+  Total Salary:
+  ₹ {{ totalSalary() }}
+</p>
 
-    <p>
-      <strong>Joining Date:</strong>
-      {{ employee.joiningDate | date:'mediumDate' }}
-    </p>
+<hr>
 
-    <p>
-      <strong>Promoted:</strong>
-      {{ employee.promoted ? 'Yes' : 'No' }}
-    </p>
+<h2>Employee List</h2>
 
-    <p>
-      <strong>Status:</strong>
-      <span [class.inactive]="!employee.isActive">
-        {{ employee.isActive ? 'Active' : 'Inactive' }}
-      </span>
-    </p>
-
-  </div>
-
-</div>
+<app-employee-card
+  *ngFor="let emp of employees()"
+  [employee]="emp"
+  (remove)="removeEmployee($event)">
+</app-employee-card>
